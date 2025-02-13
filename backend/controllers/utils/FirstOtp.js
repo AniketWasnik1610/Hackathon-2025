@@ -7,7 +7,7 @@ exports.setIO = (socketIO) => {
 };
 
 function hasFourConsecutiveRepeatingDigits(otp) {
-    return /(\d)\1{3}/.test(otp); // Regex to check for four consecutive repeating digits
+    return /(\d)\1{3}/.test(otp);
 }
 
 function checkAnamoly(otp) {
