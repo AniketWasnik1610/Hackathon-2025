@@ -42,7 +42,7 @@ io.on("connection", async (socket) => {
 
     try {
         const digit = await Digit.findOne({ name: "digit" });
-        
+
         socket.emit('Number', {
             number: digit ? digit.currentOtp : '000000000000'
         });

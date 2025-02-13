@@ -12,11 +12,8 @@ function FourNumber(props) {
   }, [props.otp]);
 
   return (
-<<<<<<< HEAD
-    <div className="w-full h-screen flex items-center justify-center" id='live'>
-=======
+
     <div className="w-full h-screen flex items-center justify-center">
->>>>>>> 1c8d9d1fd7730f5e2bafc6af0e7b859e6f8822c8
 
       <div className="flex flex-col items-center justify-center w-auto p-8 rounded-2xl bg-sky-3600/50 border-1 shadow-2xl shadow-indigo-500/40 border-indigo-600">
         <h2 className="text-white text-xl font-semibold mb-4"></h2>

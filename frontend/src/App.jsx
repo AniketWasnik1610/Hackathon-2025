@@ -7,12 +7,12 @@ import History from './components/History';
 function App() {
   return (
     <BrowserRouter>
-        <NavBar />
-          <Routes>
-            <Route path="/" element={<NumberFile />} />
-            <Route path="/history" element={<History />} />
-            <Route path="*" element={<NoPage />} />
-          </Routes>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<NumberFile />} />
+        <Route path="/history" element={<History />} />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
     </BrowserRouter>
   );
 }

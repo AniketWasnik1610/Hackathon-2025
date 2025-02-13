@@ -1,19 +1,18 @@
 import React from 'react'
 import image from "../assets/hero.jpg"
-import image from "../assets/hero.jpg"
 const HeroSection = () => {
   return (
-    <div className=" mt-214">
+    <div className="w-full flex items-center justify-center px-4 mb-8">
       <section className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-8">
         {/* Left Content */}
-        <div className="md:w-1/2 text-center md:text-left pb-5">
-        <div className='flex flex-row pb-9'>
-        <p className="text-black font-semibold  text-5xl">Welcome to </p>
-        <p className="text-cyan-600 font-semibold  text-5xl pl-3">DataFlowX</p>
-        </div>
-        
-          <h1 className="  indent-8 text-lg text-black mt-2 leading-tight">
-          DataFlowX transforms real-time data monitoring with seamless capture, transmission, and visualization. Get instant updates, AI-powered anomaly detection, and robust performance for healthcare, IoT, and transportation.
+        <div className="md:w-1/2 text-center md:text-left pb-2">
+          <div className='flex flex-row pb-6'>
+            <p className="text-black font-semibold text-5xl">Welcome to </p>
+            <p className="text-cyan-600 font-semibold  text-5xl pl-3">DataFlowX</p>
+          </div>
+
+          <h1 className="text-gray-600 indent-8 text-lg leading-tight">
+            DataFlowX transforms real-time data monitoring with seamless capture, transmission, and visualization. Get instant updates, AI-powered anomaly detection, and robust performance for healthcare, IoT, and transportation.
           </h1>
           {/* Buttons */}
           <div className="mt-13  flex justify-center md:justify-start gap-4">
@@ -29,9 +28,7 @@ const HeroSection = () => {
         <div className="md:w-1/2 flex justify-center">
           <img
             src={image}
-            src={image}
             alt="img"
-            className="z-0 rounded-xl drop-shadow-xl w-[500px] h-[500px] object-cover"
             className="z-0 rounded-xl drop-shadow-xl w-[500px] h-[500px] object-cover"
           />
         </div>

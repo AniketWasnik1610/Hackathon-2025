@@ -8,12 +8,12 @@ exports.getHistory = async (req, res) => {
 
 
         if (!digit) {
-            return res.status(400).json({ error: "Not Found" })             
+            return res.status(400).json({ error: "Not Found" })
         }
 
         const index = ith - 1;
 
-        const toSend = digit.history.slice(index, index+50);
+        const toSend = digit.history.slice(index, index + 50);
 
         return res.status(200).json({ history: toSend });
     } catch (err) {

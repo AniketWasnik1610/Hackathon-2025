@@ -12,7 +12,7 @@ function History() {
     const callHistory = async () => {
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:5000/api/v1/getHistory", {  params: { call } });
+            const response = await axios.get("http://localhost:5000/api/v1/getHistory", { params: { call } });
             setHistory((prevHistory) => [...prevHistory, ...response.data.history]);
             console.log(response.data.history);
             console.log("data aya");
@@ -30,7 +30,7 @@ function History() {
         callHistory();
     }, []);
 
-    if (loading) return (
+    if (loading && history.length === 0) return (
         <div className="w-full h-screen flex items-center justify-center bg-gray-50">
             <AiOutlineLoading3Quarters className="text-4xl text-indigo-500 animate-spin" />
         </div>
@@ -44,9 +44,6 @@ function History() {
 
     return (
         <div className='w-full min-h-screen bg-gray-50 p-6 mt-14'>
-            {loading && <div className=" flex items-center justify-center bg-gray-50">
-            <AiOutlineLoading3Quarters className="text-4xl text-indigo-500 animate-spin" />
-        </div>}
             <div className='max-w-4xl mx-auto'>
                 <div className='flex items-center gap-3 mb-6'>
                     <FaHistory className='text-2xl text-amber-500' />
@@ -62,11 +59,11 @@ function History() {
                         history.map((data, index) => (
                             <div key={index} className='bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4 border border-gray-100'>
                                 <div className='flex items-start justify-between'>
-                                    <div className='flex-1'> 
-                                        <p className='text-gray-800 whitespace-pre-wrap break-words'>{data.slice(0,4) + `  `+ data.slice(4,8) + `  `+ data.slice(8)}</p>
+                                    <div className='flex-1'>
+                                        <p className='text-gray-800 whitespace-pre-wrap break-words'>{data.slice(0, 4) + `  ` + data.slice(4, 8) + `  ` + data.slice(8)}</p>
                                     </div>
                                     <span className='text-sm text-gray-500 ml-4'>
-                                        {new Date().toLocaleDateString()}
+                                        {new Date(data.slice(0, 4), parseInt(data.slice(4, 6)) - 1, data.slice(6, 8)).toLocaleDateString()}
                                     </span>
                                 </div>
                             </div>
@@ -75,8 +72,17 @@ function History() {
                 </div>
 
                 <div className='w-full flex items-center justify-center mt-4'>
-                    <button onClick={callHistory} className='py-2 px-4 bg-amber-400 cursor-pointer rounded-md hover:bg-amber-500 transition-colors'>
-                        {loading ?<AiOutlineLoading3Quarters className="text-sm text-indigo-500 animate-spin" /> :"Load more data..."}
+                    <button
+                        onClick={callHistory}
+                        disabled={loading}
+                        className='py-2 px-4 bg-amber-400 cursor-pointer rounded-md hover:bg-amber-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+                    >
+                        {loading ? (
+                            <div className="flex items-center gap-2">
+                                <AiOutlineLoading3Quarters className="text-sm animate-spin" />
+                                <span>Loading...</span>
+                            </div>
+                        ) : "Load more data"}
                     </button>
                 </div>
             </div>

@@ -23,14 +23,13 @@ function NumberFile() {
   });
 
   return (
-    <div className='bg-wight w-full h-screen flex items-center justify-center'>
-      <div className='w-10/12 h-full flex-col flex items-center justify-center m-9' >
+    <div className='bg-white w-full min-h-screen flex items-center justify-center pt-20 pb-10'>
+      <div className='w-11/12 max-w-7xl flex-col flex items-center justify-center gap-8' >
         <HeroSection />
         <div className='flex items-center justify-center gap-4'>
-          <FourNumber otp = {otp.slice(0, 4)} index = '1'/>
-          
-          <FourNumber otp = {otp.slice(4, 8)} index = '2'/>
-          <FourNumber otp = {otp.slice(8)} index = '3'/>
+          <FourNumber otp={otp.slice(0, 4)} index='1' />
+          <FourNumber otp={otp.slice(4, 8)} index='2' />
+          <FourNumber otp={otp.slice(8)} index='3' />
         </div>
       </div>
     </div>
